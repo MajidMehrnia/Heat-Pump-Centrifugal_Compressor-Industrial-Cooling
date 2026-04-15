@@ -1,6 +1,6 @@
-## Electric Vehicle (EV) Thermal Management System Design  
+## Thermal Management System Design  
 
-This repository is based on an EV thermal management model originally developed in Simulink. It includes a virtual Battery Electric Vehicle (BEV) equipped with an integrated thermal management system. The vehicle model is parameterized to represent a mid-size electric sedan [1].
+This repository is based on a thermal management model originally developed in Simulink. It includes a virtual Battery Electric Vehicle (BEV) equipped with an integrated thermal management system [1].
 
 In addition to the Simulink implementation, the refrigerant-based thermal management system is also modeled independently in GT-SUITE. This enables a detailed system-level representation of the vapor compression cycle, including the compressor, condenser, expansion device, and evaporator, with high-fidelity thermodynamic and component performance modeling.
 
