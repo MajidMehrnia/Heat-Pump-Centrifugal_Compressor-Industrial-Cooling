@@ -36,36 +36,27 @@ The figure below shows H/P system architecture in GT-SUITE.
 ![Refrig_GT1](https://github.com/user-attachments/assets/46a3b2f9-04ed-427c-8833-e348070fcffc)
 
 
+### Compressor
 
+The compressor drives the refrigerant or process gas flow in the system and is a key component in both industrial heat pump and centrifugal gas compression applications. Depending on the application, different compressor technologies are considered, including scroll compressors for automotive thermal systems, and high-speed centrifugal turbocompressors for industrial air and process gas systems.
 
-#### Compressor
-The compressor drives the flow in the refrigerant loop. It is controlled to maintain a pressure of 0.3 MPa in the chiller and the evaporator, which corresponds to a saturation temperature of around 1°C. 
-For a centrifigual compressor, a novel direct approach involves using a 3D CAD model of the fixed and orbiting scrolls to obtain volume and area profiles for the construction of a one-dimensional fluid dynamic model. The figure below presents a high-fidelity 1D hybrid approach for simulating a  turbocompressor, demonstrating excellent agreement with test data.
+For industrial centrifugal turbocompressors, the compressor is typically modeled using a high-fidelity 1D or hybrid 3D-to-1D approach. In this method, a detailed geometric representation (e.g., CAD-based impeller and diffuser geometry or reduced-order mean-line data) is used to derive flow area, volume, and loss distributions along the flow path. This enables the construction of a physics-based one-dimensional model capable of capturing the essential thermodynamic and fluid dynamic behavior of the machine while maintaining computational efficiency.
 
-Compressor maps are M-by-N matrices where the number of rows, M, is equal to the number of corrected speeds and the number of columns, N, is equal to the number of points along each corrected speed line. The indexing vectors for these matrices are a corrected speed vector of length M and a vector for the auxiliary coordinate system parameter β of length N with values ranging from 0 to 1.
+Compressor maps are commonly used to parameterize the reduced-order model. These maps are M-by-N matrices, where M corresponds to the number of corrected rotational speed lines and N represents discretized operating points along each speed line. The indexing structure is defined by a corrected speed vector of length M and an auxiliary coordinate β ranging from 0 to 1, which describes the progression along each speed line from surge to choke conditions.
 
-This figure shows a compressor map. It was used this compressor map to parameterize a Compressor block.
+The following figure illustrates a typical centrifugal compressor map used for model parameterization in system-level simulations:
 
-<img width="698" height="520" alt="CompressorMapExample_01" src="https://github.com/user-attachments/assets/27ff4b09-ec5d-40f5-b6fc-30222b6f8713" />
+<img width="698" height="520" alt="CompressorMapExample_01" src="https://github.com/user-attachments/assets/27ff4b09-ec5d-40f5-b6fc-30222b6f8713" /> <img width="470" height="220" alt="CompressorMapExample_05" src="https://github.com/user-attachments/assets/ba4e8f8a-42ee-486a-853f-6da6f1ed6601" />
 
-<img width="470" height="338" alt="CompressorMapExample_05" src="https://github.com/user-attachments/assets/701a2c7d-14b8-4c04-b861-7c837c569907" />
+The compressor performance is defined using manufacturer-provided maps or experimentally calibrated data, which describe key variables such as mass flow rate, pressure ratio, and isentropic efficiency as functions of suction conditions, discharge pressure, and rotational speed. These maps inherently account for internal irreversible effects, including leakage, incidence losses, and heat transfer, without explicitly resolving the internal three-dimensional flow field. As a result, the compressor is treated as a black-box or grey-box component, enabling efficient and robust system-level simulation of both vapor compression heat pumps and gas compression systems.
 
+This modeling approach is widely used for centrifugal compressors in industrial air and process gas applications, as well as for high-capacity heat pump systems, where dynamic interaction with the cycle is critical. It provides fast numerical convergence, low computational cost, and is well suited for control design, transient analysis, and parametric studies.
 
+The refrigerant or gas compressor can be implemented in simulation environments such as GT-SUITE or Simulink/Simscape using dedicated thermo-fluid and turbomachinery libraries. These models capture key behaviors including mass flow rate, pressure ratio, efficiency, and dynamic shaft response under varying operating conditions. Additional sub-models may be included to represent mechanical losses, rotational inertia, and control system interactions.
 
+One of the main challenges in co-simulation environments is the time-step mismatch between system-level and high-fidelity solvers. This is typically addressed using coupling strategies such as fixed-step synchronization, interface variable filtering, or reduced-order surrogate models.
 
-The compressor performance is defined through manufacturer-provided performance maps, which describe the refrigerant mass flow rate and compressor power consumption as functions of suction and discharge pressures, suction temperature, and compressor rotational speed. These maps inherently account for internal losses, including leakage, and heat transfer effects, without explicitly resolving the internal flow field. The compressor is therefore treated as a black-box component, enabling efficient and robust system-level simulations of the two-phase heat pump cycle. This modeling approach provides fast convergence and low computational cost, making it well suited for parametric studies and control-oriented analyses.
-
-![GT-SUITE_blocks](https://github.com/user-attachments/assets/fef207ef-334b-4d06-adff-b759e48033e8)
-
-
-The refrigerant compressor is modeled and simulated in GT-SUITE using its dedicated thermo-fluid and mechanical component libraries. 
-The model captures key compressor behaviors, including mass flow rate, pressure ratio, efficiency, and dynamic response under varying operating conditions. 
-Different sub-models are employed to represent thermodynamic processes, mechanical losses, and control-relevant dynamics. One of the main challenges in this co-simulation was handling the time-step mismatch between the two models.Detailed compressor model implemented in GT-SUITE and coupled with Simulink through co-simulation. 
-
-Due to GT-SUITE licensing restrictions, the original model files cannot be shared publicly. 
-Therefore, only representative diagrams, descriptions, and co-simulation interfaces are provided in this repository.
-
-
+Due to licensing constraints, detailed proprietary compressor models cannot be shared. Therefore, only representative schematics, parameterization methods, and co-simulation architectures are provided.
 
 
 ## Thermal Management System Design  
