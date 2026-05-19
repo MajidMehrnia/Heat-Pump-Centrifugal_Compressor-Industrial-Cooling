@@ -19,6 +19,7 @@ The following figure illustrates a typical centrifugal compressor map used for m
 <img width="698" height="520" alt="CompressorMapExample_01" src="https://github.com/user-attachments/assets/27ff4b09-ec5d-40f5-b6fc-30222b6f8713" /> 
 <p align="center">
 <img width="537" height="278" alt="CompressorMapExample_05" src="https://github.com/user-attachments/assets/6c6b552a-174d-4494-b3c3-678262877813" />
+<img width="560" height="337" alt="CompressorMapExample_04" src="https://github.com/user-attachments/assets/bf81af34-33f4-4128-9864-5d9b931b5e09" />
 
 
 
