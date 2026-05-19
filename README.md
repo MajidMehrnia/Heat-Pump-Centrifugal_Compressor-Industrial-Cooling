@@ -99,6 +99,13 @@ The main thermodynamic output of the calculations is the **P–h diagram** of th
 
 ## Post-processing
 
+<strong style="color:red;">Simulation Results from Simscape Logging</strong>
+
+<img width="959" height="577" alt="BraytonCycleGasTurbineExample_05" src="https://github.com/user-attachments/assets/317acdc4-4f66-4287-827e-1f1a54f96aa2" />
+
+
+
+
 The post-processing of the thermal simulation results focuses on resolving heat flux distributions within the battery pack and their coupling to the coolant loop. Cell-level heat generation is computed internally from the electrical model and exported as a time-resolved thermal power signal, which is subsequently mapped to the thermal network. The resulting heat flux at the cell–cooling plate interface represents the effective thermal load imposed on the BTMS and varies strongly with drive cycle transients. Peak heat flux events correlate with high current demand phases rather than steady-state operation, highlighting the importance of transient thermal capacity over nominal cooling power when sizing the thermal interfaces.
 
 ![HF-1](https://github.com/user-attachments/assets/deccfc83-95e9-4024-8bff-fa5597fe9d16)
